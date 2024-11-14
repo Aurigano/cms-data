@@ -148,7 +148,7 @@ app.post("/upload-file", upload.single("file"), async (req, res) => {
     ]);
     await git.fetch();
     await git.branch(["--set-upstream-to=origin/master", "master"]);
-    await git.pull();
+    // await git.pull();
     await git.push();
 
     res.status(200).send("File uploaded and committed successfully");
