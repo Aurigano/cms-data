@@ -149,7 +149,9 @@ app.post("/upload-file", upload.single("file"), async (req, res) => {
     await git.branch(["--set-upstream-to=origin/master", "master"]);
     await git.fetch();
     // await git.pull();
-    await git.pull("origin", "master", ["--no-rebase"]);
+    await git.pull("origin", "master", ["--no-rebase"], {
+      "--allow-unrelated-histories": null,
+    });
     await git.push();
 
     res.status(200).send("File uploaded and committed successfully");
