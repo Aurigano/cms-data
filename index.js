@@ -146,8 +146,8 @@ app.post("/upload-file", upload.single("file"), async (req, res) => {
       "origin",
       "https://github.com/Aurigano/cms-data.git",
     ]);
-    await git.fetch();
     await git.branch(["--set-upstream-to=origin/master", "master"]);
+    await git.fetch();
     // await git.pull();
     await git.push();
 
